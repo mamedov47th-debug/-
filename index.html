@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Счетчик нажатий</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #clickButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    #countDisplay {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button id="clickButton">Нажми меня</button>
+  <div id="countDisplay">Счёт: <span id="count">0</span></div>
+
+  <script>
+    const button = document.getElementById('clickButton');
+    const countSpan = document.getElementById('count');
+    const colors = ['red', 'green', 'blue', 'orange', 'purple', 'pink', 'cyan', 'yellow'];
+    let count = 0;
+
+    button.addEventListener('click', () => {
+      count++;
+      countSpan.textContent = count;
+      const color = colors[count % colors.length];
+      button.style.backgroundColor = color;
+    });
+  </script>
+</body>
+</html>
